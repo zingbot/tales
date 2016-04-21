@@ -30,7 +30,17 @@
 		href="js/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 	<script type="text/javascript"
 		src="js/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-
+<style>.infobar{
+	position: absolute;
+	width:53%;
+	height: 22%;
+	background-color:#fff;
+	opacity: .7;
+	top:225;
+	left:100;
+	z-index: 10000;
+	margin: 575px 30px 30px 30px;
+	border: 1px solid #7facec;}\</style>
 </head>
 
 <body>
@@ -41,9 +51,10 @@
     </script>
 
 	 <div id="map" style="width: 1200px; height: 800px">
+	 	<div class="infobar">
     <a class="fancybox" rel="group" href="imgbig_image_1.jpg"><img src="small_image_1.jpg" alt="" /></a>
 <a class="fancybox" rel="group" href="big_image_2.jpg"><img src="small_image_2.jpg" alt="" /></a>
-<script>
+<script></div>
  var map_zoom = 16;
       var max_zoom =16;
       var map = L.map('map',{zoomControl: false}).setView([40.702515,-74.0036747], map_zoom);

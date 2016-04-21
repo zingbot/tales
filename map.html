@@ -8,6 +8,16 @@
   <style>
     html, body {width:100%; height:100%; padding: 0; margin: 0;}
     #cartodb-map { width: 100%; height:100%; background: black;}
+  .infobar{
+  position: absolute;
+  width:62%;
+  height: 90%;
+  background-color:wh;
+  opacity: 1;
+  top:25;
+  right:100;
+  z-index: 10000;
+  border: 1px solid #7facec;}
   </style>
 
   <script>
@@ -15,21 +25,21 @@
     function init(){
       // initiate leaflet map
       map = new L.Map('cartodb-map', {
-        center: [40,-98],
-        zoom: 12
+        center: [40.72825, -73.57440],
+        zoom: 11
       })
 
-      L.tileLayer('https://dnv9my2eseobd.cloudfront.net/v3/cartodb.map-4xtxp73f/{z}/{x}/{y}.png', {
+      L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png', {
         attribution: 'Mapbox <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
       }).addTo(map);
 
       var layerUrl = 'https://columbialibraries.cartodb.com/u/jf3015/api/v2/viz/777db8a0-e585-11e5-ba00-0e5db1731f59/viz.json';
 
       // change the query for the first layer
-      var subLayerOptions = {
-        sql: "SELECT * FROM example_cartodbjs_1 where adm0_a3 = 'USA'",
-        cartocss: "#example_cartodbjs_1{marker-fill: #109DCD; marker-width: 5; marker-line-color: white; marker-line-width: 0;}"
-      }
+      // var subLayerOptions = {
+      //   sql: "SELECT * FROM example_cartodbjs_1 where adm0_a3 = 'USA'",
+      //   cartocss: "#example_cartodbjs_1{marker-fill: #109DCD; marker-width: 5; marker-line-color: white; marker-line-width: 0;}"
+      // }
 
       cartodb.createLayer(map, layerUrl)
         .addTo(map)
@@ -43,6 +53,6 @@
 </head>
 
 <body onload="init()">
-  <div id='cartodb-map'></div>
+  <div id='cartodb-map'></div><div class="infobar"><iframe width="100%" height="520" frameborder="0" src="http://maryamzargar.github.io/tales/" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></div>
 </body>
 </html>
